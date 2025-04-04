@@ -1,6 +1,7 @@
 project:
   type: website
-
+  output-dir: docs
+  
 website:
   title: "Nivan Vora's Website"
   navbar:
@@ -9,6 +10,7 @@ website:
         text: About
       - href: resume.qmd
         text: Resume
+  
 
 format:
   html:
