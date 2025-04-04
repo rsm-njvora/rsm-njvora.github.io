@@ -1,0 +1,16 @@
+---
+title: "Nivan Vora"
+image: "Images/Nivan_headshot.jpg"
+about: 
+    template: jolla
+    links:
+        - icon: envelope
+          href: mailto:nivanvora02@gmail.com
+        - icon: linkedin
+          href: https://www.linkedin.com/in/nivan-vora-/
+
+---
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.

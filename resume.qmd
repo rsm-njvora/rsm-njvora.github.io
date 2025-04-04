@@ -1,0 +1,5 @@
+---
+title: "Resume"
+---
+{{< pdf Resume/Data Analyst Intern_Resume_Nivan Vora.pdf width=100% height=800 >}}
+
