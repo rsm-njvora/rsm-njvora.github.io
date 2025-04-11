@@ -1,6 +1,6 @@
 ---
 title: "Nivan Vora"
-image: "Images/Nivan_headshot.jpg"
+image: "Images/WhatsApp Image 2025-04-11 at 13.11.39_6b09b58b.jpg"
 about: 
     template: jolla
     links:
