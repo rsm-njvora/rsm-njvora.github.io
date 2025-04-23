@@ -1,7 +1,7 @@
 ---
 title: "A Replication of Karlan and List (2007)"
-author: "Your Name"
-date: today
+author: "Nivan Vora"
+date: April 23 2025
 callout-appearance: minimal 
 ---
 
@@ -186,7 +186,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-_todo: run a t-test between the treatment and control groups on the binary outcome of whether any charitable donation was made. Also run a bivariate linear regression that demonstrates the same finding. (It may help to confirm your calculations match Table 2a Panel A.) Report your statistical results and interpret them in the context of the experiment (e.g., if you found a difference with a small p-value or that was statistically significant at some threshold, what have you learned about human behavior? Use mostly English words, not numbers or stats, to explain your finding.)_
 ```{python}
 import pandas as pd
 import numpy as np
@@ -217,7 +216,6 @@ t_test_result, regression_summary
 
 ```
 
-_todo: run a probit regression where the outcome variable is whether any charitable donation was made and the explanatory variable is assignment to treatment or control. Confirm that your results replicate Table 3 column 1 in the paper._
 ```{python}
 import pandas as pd
 import numpy as np
@@ -275,7 +273,6 @@ This supports the idea that **subtle psychological nudges—like matched giving�
 
 Next, I assess the effectiveness of different sizes of matched donations on the response rate.
 
-_todo: Use a series of t-tests to test whether the size of the match ratio has an effect on whether people donate or not. For example, does the 2:1 match rate lead increase the likelihood that someone donates as compared to the 1:1 match rate? Do your results support the "figures suggest" comment the authors make on page 8?_
 ```{python}
 import pandas as pd
 from scipy.stats import ttest_ind
@@ -302,7 +299,6 @@ for label, result in tests.items():
     print(f"{label:<15} | t = {t_stat:.4f}, p = {p_val:.4f} | {significance}")
 ```
 
-_todo: Assess the same issue using a regression. Specifically, create the variable `ratio1` then regress `gave` on `ratio1`, `ratio2`, and `ratio3` (or alternatively, regress `gave` on the categorical variable `ratio`). Interpret the coefficients and their statistical precision._
 ```{python}
 import pandas as pd
 import numpy as np
@@ -324,8 +320,8 @@ model = sm.OLS(y, X).fit()
 regression_summary = model.summary()
 regression_summary
 ```
+The regression results show that neither the 2:1 nor the 3:1 match ratios led to a statistically significant increase in donation likelihood compared to the 1:1 match. While both ratio2 and ratio3 have positive coefficients, their p-values (0.338 and 0.313) are well above conventional significance thresholds. This suggests that offering a higher match doesn’t meaningfully change the probability that someone donates, at least in this context.
 
-_todo: Calculate the response rate difference between the 1:1 and 2:1 match ratios and the 2:1 and 3:1 ratios.  Do this directly from the data, and do it by computing the differences in the fitted coefficients of the previous regression. what do you conclude regarding the effectiveness of different sizes of matched donations?_
 ```{python}
 import pandas as pd
 
@@ -366,6 +362,7 @@ diff_3_vs_2_reg = model.params['ratio3'] - model.params['ratio2']
 }
 
 ```
+Based on both the direct data comparisons and the regression coefficients, the differences in response rates between match sizes are extremely small. The move from a 1:1 to a 2:1 match increases the donation rate by just 0.0019 (0.19 percentage points), and the jump from 2:1 to 3:1 adds only 0.0001 (0.01 percentage points). These effects are negligible in practice and statistically insignificant. The conclusion is clear: increasing the match ratio beyond 1:1 does not meaningfully improve donation rates. The mere presence of a match appears to matter, but making the match more generous does not lead to further increases in giving
 
 ### Size of Charitable Contribution
 
@@ -429,7 +426,7 @@ axes[1].legend()
 plt.tight_layout()
 print(plt.show())
 ```
-
+The analysis shows that while the treatment group gave slightly more on average than the control group when everyone is included, the difference isn't statistically significant at conventional levels. When we look only at those who actually donated, the control group gave more on average than the treatment group, and again, the difference isn’t significant. The histograms reinforce this, showing very similar distributions for both groups. This suggests that the match offer might help get more people to donate, but it doesn't appear to influence how much they give once they've made the decision to contribute.
 
 ## Simulation Experiment
 
