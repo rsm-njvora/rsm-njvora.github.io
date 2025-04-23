@@ -12,5 +12,12 @@
     "title": "Resume",
     "section": "",
     "text": "Download PDF file."
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Nivan Vora's Website",
+    "section": "",
+    "text": "title: “My Projects” listing: contents: blog type: grid sort: “date desc” categories: false"
   }
 ]
