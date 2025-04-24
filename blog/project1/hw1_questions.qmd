@@ -191,7 +191,7 @@ import pandas as pd
 import numpy as np
 from scipy.stats import ttest_ind
 import statsmodels.api as sm
-import pyreadstat
+import pyreadstat 
 
 df = pd.read_stata("karlan_list_2007.dta")
 treat = df[df['treatment'] == 1]['gave'].dropna()
