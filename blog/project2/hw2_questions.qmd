@@ -17,14 +17,12 @@ However, Blueprinty has collected data on 1,500 mature (non-startup) engineering
 
 ### Data
 
-_todo: Read in data._
 ```{python}
 import pandas as pd
 df = pd.read_csv("blueprinty.csv")
 ```
 
 
-_todo: Compare histograms and means of number of patents by customer status. What do you observe?_
 ```{python}
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -64,8 +62,6 @@ While this difference is not dramatic, it is notable and provides initial eviden
 
 Blueprinty customers are not selected at random. It may be important to account for systematic differences in the age and regional location of customers vs non-customers.
 
-
-_todo: Compare regions and ages by customer status. What do you observe?_
 ```{python}
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -105,7 +101,6 @@ We first looked at the regional breakdown of firms. The proportion of customers 
 While the age difference is modest, the regional distribution shows a more striking pattern. These differences highlight the importance of controlling for firm characteristics like region and age in any regression analysis that aims to estimate the effect of using Blueprinty's software.
 
 
-
 ### Estimation of Simple Poisson Model
 
 Since our outcome variable of interest can only be small integer values per a set unit of time, we can use a Poisson density to model the number of patents awarded to each engineering firm over the last 5 years. We start by estimating a simple Poisson model via Maximum Likelihood.
@@ -138,8 +133,6 @@ Taking the natural logarithm, the **log-likelihood** is:
 \]
 
 
-_todo: Code the likelihood (or log-likelihood) function for the Poisson model. This is a function of lambda and Y. For example:_
-
 ```{python}
 import numpy as np
 from scipy.special import gammaln
@@ -155,8 +148,6 @@ def poisson_loglikelihood(lambda_, Y):
 - `Y` is a NumPy array of observed counts
 - `gammaln(Y + 1)` is used for stable computation of \( \log(Y!) \)
 
-
-_todo: Use your function to plot lambda on the horizontal axis and the likelihood (or log-likelihood) on the vertical axis for a range of lambdas (use the observed number of patents as the input for Y)._
 
 ```{python}
 import pandas as pd
@@ -185,7 +176,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-_todo: If you're feeling mathematical, take the first derivative of your likelihood or log-likelihood, set it equal to zero and solve for lambda. You will find lambda_mle is Ybar, which "feels right" because the mean of a Poisson distribution is lambda._
 
 # Deriving the Maximum Likelihood Estimator for \(\lambda\)
 
@@ -217,9 +207,6 @@ To find the maximum likelihood estimator (MLE) for \(\lambda\), we take the deri
 
 Thus, the **maximum likelihood estimator** for \(\lambda\) is simply the **sample mean** \( \bar{Y} \). This result aligns intuitively with the fact that the Poisson distribution’s mean is \(\lambda\).
 
-
-
-_todo: Find the MLE by optimizing your likelihood function with optim() in R or sp.optimize() in Python._
 
 ```{python}
 import pandas as pd
@@ -254,7 +241,6 @@ lambda_mle
 
 Next, we extend our simple Poisson model to a Poisson Regression Model such that $Y_i = \text{Poisson}(\lambda_i)$ where $\lambda_i = \exp(X_i'\beta)$. The interpretation is that the success rate of patent awards is not constant across all firms ($\lambda$) but rather is a function of firm characteristics $X_i$. Specifically, we will use the covariates age, age squared, region, and whether the firm is a customer of Blueprinty.
 
-_todo: Update your likelihood or log-likelihood function with an additional argument to take in a covariate matrix X. Also change the parameter of the model from lambda to the beta vector. In this model, lambda must be a positive number, so we choose the inverse link function g_inv() to be exp() so that_ $\lambda_i = e^{X_i'\beta}$. _For example:_
 
 ```{python}
 import numpy as np
@@ -267,7 +253,6 @@ def poisson_regression_loglikelihood(beta, Y, X):
     return -np.sum(-lambda_i + Y * Xb - gammaln(Y + 1))
 ```
 
-_todo: Use your function along with R's optim() or Python's sp.optimize() to find the MLE vector and the Hessian of the Poisson model with covariates. Specifically, the first column of X should be all 1's to enable a constant term in the model, and the subsequent columns should be age, age squared, binary variables for all but one of the regions, and the binary customer variable. Use the Hessian to find standard errors of the beta parameter estimates and present a table of coefficients and standard errors._
 
 ```{python}
 import numpy as np
@@ -327,7 +312,6 @@ print(coef_table)
 
 
 
-
 ```{python}
 import pandas as pd
 import numpy as np
@@ -373,6 +357,7 @@ y_pred_1 = result.predict(X_1)
 treatment_effect = np.mean(y_pred_1 - y_pred_0)
 print(f"\nAverage effect of using Blueprinty's software: {treatment_effect:.4f} additional patents per firm")
 ```
+
 # Interpretation 
 We first estimated a Poisson regression model using firm characteristics to predict the number of patents awarded. The key independent variable of interest is iscustomer, a binary indicator for whether a firm uses Blueprinty's software.
 
@@ -387,7 +372,6 @@ To make the effect size more interpretable, we performed a simulation. Specifica
 - We then computed the *difference in predicted patent counts* between the two scenarios and took the *average* of these differences.
 
 This gives us an estimate of the *average marginal effect* of using Blueprinty's software on patent outcomes. The simulation revealed that, on average, firms using Blueprinty's software are predicted to receive approximately *X.YZ more patents* than if they had not used the software. This provides strong, interpretable evidence supporting the idea that Blueprinty’s software is associated with improved patent success, even after controlling for age and regional differences.
-
 
 
 
@@ -417,10 +401,10 @@ AirBnB is a popular platform for booking short-term rentals. In March 2017, stud
 ::::
 
 
-_todo: Assume the number of reviews is a good proxy for the number of bookings. Perform some exploratory data analysis to get a feel for the data, handle or drop observations with missing values on relevant variables, build one or more models (e.g., a poisson regression model for the number of bookings as proxied by the number of reviews), and interpret model coefficients to describe variation in the number of reviews as a function of the variables provided._
 
-We begin by examining the key variables that may influence the number of reviews, including price, room quality, and cleanliness.
-To identify potential multicollinearity and relationships, we examine the correlation between numerical features.
+**We begin by examining the key variables that may influence the number of reviews, including price, room quality, and cleanliness.**
+
+**To identify potential multicollinearity and relationships, we examine the correlation between numerical features.** 
 ```{python}
 ## Step 1: Data Cleaning
 
@@ -463,11 +447,13 @@ plt.hist(df_clean['number_of_reviews'], bins=50)
 plt.title('Distribution of Number of Reviews')
 plt.xlabel('Number of Reviews')
 plt.ylabel('Frequency')
-plt.yscale('log')  # log scale to handle skew
+plt.yscale('log') 
 plt.show()
 ```
-The number of reviews is highly skewed, with many listings receiving few reviews.
-Since number_of_reviews is a count variable, we model it using Poisson regression. We include key predictors such as price, duration on the platform, room type, review scores, and instant bookability.
+
+**The number of reviews is highly skewed, with many listings receiving few reviews.**
+
+**Since number_of_reviews is a count variable, we model it using Poisson regression. We include key predictors such as price, duration on the platform, room type, review scores, and instant bookability.**
 
 ```{python}
 ## Step 3: Poisson Regression Modeling
@@ -485,10 +471,8 @@ df_clean = df.dropna(subset=[
     'review_scores_value'
 ])
 
-# Encode categorical variables
 df_clean['instant_bookable'] = df_clean['instant_bookable'].map({'t': 1, 'f': 0})
 
-# Use Poisson regression to model number of reviews
 formula = "number_of_reviews ~ price + days + bathrooms + bedrooms + review_scores_cleanliness + review_scores_location + review_scores_value + C(room_type) + instant_bookable"
 poisson_model = smf.glm(formula=formula, data=df_clean, family=sm.families.Poisson()).fit()
 

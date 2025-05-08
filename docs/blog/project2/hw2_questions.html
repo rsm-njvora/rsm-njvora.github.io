@@ -253,13 +253,11 @@ window.Quarto = {
 </section>
 <section id="data" class="level3">
 <h3 class="anchored" data-anchor-id="data">Data</h3>
-<p><em>todo: Read in data.</em></p>
-<div id="baed2233" class="cell" data-execution_count="1">
+<div id="6e2f8f63" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"blueprinty.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><em>todo: Compare histograms and means of number of patents by customer status. What do you observe?</em></p>
-<div id="d469b35a" class="cell" data-execution_count="2">
+<div id="f9d375b0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -304,8 +302,7 @@ window.Quarto = {
 </ul>
 <p>While this difference is not dramatic, it is notable and provides initial evidence consistent with the marketing team’s hypothesis. However, it is important to interpret these results with caution. This comparison does not account for other firm characteristics such as age or geographic region, which could also influence patent success.</p>
 <p>Blueprinty customers are not selected at random. It may be important to account for systematic differences in the age and regional location of customers vs non-customers.</p>
-<p><em>todo: Compare regions and ages by customer status. What do you observe?</em></p>
-<div id="b82f5aa1" class="cell" data-execution_count="3">
+<div id="cdf8f08b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -376,8 +373,7 @@ window.Quarto = {
 <p>[ L() = _{i=1}^{n} = e^{-n} <sup>{<em>{i=1}^n Y_i} </em>{i=1}</sup>{n} ]</p>
 <p>Taking the natural logarithm, the <strong>log-likelihood</strong> is:</p>
 <p>[ L() = -n+ (<em>{i=1}^{n} Y_i) - </em>{i=1}^{n} (Y_i!) ]</p>
-<p><em>todo: Code the likelihood (or log-likelihood) function for the Poisson model. This is a function of lambda and Y. For example:</em></p>
-<div id="328fb661" class="cell" data-execution_count="4">
+<div id="f805e80b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> gammaln</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -392,8 +388,7 @@ window.Quarto = {
 <li><code>Y</code> is a NumPy array of observed counts</li>
 <li><code>gammaln(Y + 1)</code> is used for stable computation of ( (Y!) )</li>
 </ul>
-<p><em>todo: Use your function to plot lambda on the horizontal axis and the likelihood (or log-likelihood) on the vertical axis for a range of lambdas (use the observed number of patents as the input for Y).</em></p>
-<div id="73932ede" class="cell" data-execution_count="5">
+<div id="6285519c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -426,7 +421,6 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p><em>todo: If you’re feeling mathematical, take the first derivative of your likelihood or log-likelihood, set it equal to zero and solve for lambda. You will find lambda_mle is Ybar, which “feels right” because the mean of a Poisson distribution is lambda.</em></p>
 </section>
 <section id="deriving-the-maximum-likelihood-estimator-for" class="level1">
 <h1>Deriving the Maximum Likelihood Estimator for ()</h1>
@@ -446,8 +440,7 @@ window.Quarto = {
 </ul>
 <p>[ <em>{i=1}^{n} Y_i = n </em>{i=1}^{n} Y_i = n= _{i=1}^{n} Y_i = {Y} ]</p>
 <p>Thus, the <strong>maximum likelihood estimator</strong> for () is simply the <strong>sample mean</strong> ( {Y} ). This result aligns intuitively with the fact that the Poisson distribution’s mean is ().</p>
-<p><em>todo: Find the MLE by optimizing your likelihood function with optim() in R or sp.optimize() in Python.</em></p>
-<div id="82474025" class="cell" data-execution_count="6">
+<div id="9c7f8130" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -480,8 +473,7 @@ window.Quarto = {
 <section id="estimation-of-poisson-regression-model" class="level3">
 <h3 class="anchored" data-anchor-id="estimation-of-poisson-regression-model">Estimation of Poisson Regression Model</h3>
 <p>Next, we extend our simple Poisson model to a Poisson Regression Model such that <span class="math inline">\(Y_i = \text{Poisson}(\lambda_i)\)</span> where <span class="math inline">\(\lambda_i = \exp(X_i'\beta)\)</span>. The interpretation is that the success rate of patent awards is not constant across all firms (<span class="math inline">\(\lambda\)</span>) but rather is a function of firm characteristics <span class="math inline">\(X_i\)</span>. Specifically, we will use the covariates age, age squared, region, and whether the firm is a customer of Blueprinty.</p>
-<p><em>todo: Update your likelihood or log-likelihood function with an additional argument to take in a covariate matrix X. Also change the parameter of the model from lambda to the beta vector. In this model, lambda must be a positive number, so we choose the inverse link function g_inv() to be exp() so that</em> <span class="math inline">\(\lambda_i = e^{X_i'\beta}\)</span>. <em>For example:</em></p>
-<div id="c379db2f" class="cell" data-execution_count="7">
+<div id="95ece978" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> gammaln</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> poisson_regression_loglikelihood(beta, Y, X):</span>
@@ -491,8 +483,7 @@ window.Quarto = {
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    lambda_i <span class="op">=</span> np.exp(Xb)</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>np.<span class="bu">sum</span>(<span class="op">-</span>lambda_i <span class="op">+</span> Y <span class="op">*</span> Xb <span class="op">-</span> gammaln(Y <span class="op">+</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><em>todo: Use your function along with R’s optim() or Python’s sp.optimize() to find the MLE vector and the Hessian of the Poisson model with covariates. Specifically, the first column of X should be all 1’s to enable a constant term in the model, and the subsequent columns should be age, age squared, binary variables for all but one of the regions, and the binary customer variable. Use the Hessian to find standard errors of the beta parameter estimates and present a table of coefficients and standard errors.</em></p>
-<div id="955728e9" class="cell" data-execution_count="8">
+<div id="246a92a9" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
@@ -558,7 +549,7 @@ region_South         0.056561        0.084381
 region_Southwest     0.050576        0.078990</code></pre>
 </div>
 </div>
-<div id="1743b04c" class="cell" data-execution_count="9">
+<div id="e3c36a5e" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -611,7 +602,7 @@ Model Family:                 Poisson   Df Model:                            7
 Link Function:                    Log   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -3258.1
 Date:                Wed, 07 May 2025   Deviance:                       2143.3
-Time:                        19:59:25   Pearson chi2:                 2.07e+03
+Time:                        20:47:20   Pearson chi2:                 2.07e+03
 No. Iterations:                     5   Pseudo R-squ. (CS):             0.1360
 Covariance Type:            nonrobust                                         
 ====================================================================================
@@ -680,9 +671,9 @@ Variable Definitions
 </div>
 </div>
 </div>
-<p><em>todo: Assume the number of reviews is a good proxy for the number of bookings. Perform some exploratory data analysis to get a feel for the data, handle or drop observations with missing values on relevant variables, build one or more models (e.g., a poisson regression model for the number of bookings as proxied by the number of reviews), and interpret model coefficients to describe variation in the number of reviews as a function of the variables provided.</em></p>
-<p>We begin by examining the key variables that may influence the number of reviews, including price, room quality, and cleanliness. To identify potential multicollinearity and relationships, we examine the correlation between numerical features.</p>
-<div id="0de31354" class="cell" data-execution_count="10">
+<p><strong>We begin by examining the key variables that may influence the number of reviews, including price, room quality, and cleanliness.</strong></p>
+<p><strong>To identify potential multicollinearity and relationships, we examine the correlation between numerical features.</strong></p>
+<div id="8e09f4bf" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Step 1: Data Cleaning</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -699,7 +690,7 @@ Variable Definitions
 <pre><code>Original rows: 40628, After cleaning: 30140</code></pre>
 </div>
 </div>
-<div id="ce762c18" class="cell" data-execution_count="11">
+<div id="4e14f3b9" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Step 2: Exploratory Data Analysis (EDA)</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -726,7 +717,7 @@ Variable Definitions
 <span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of Number of Reviews'</span>)</span>
 <span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Reviews'</span>)</span>
 <span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
-<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">'log'</span>)  <span class="co"># log scale to handle skew</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">'log'</span>) </span>
 <span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              price  number_of_reviews  review_scores_cleanliness  \
@@ -786,8 +777,9 @@ number_of_reviews                    -0.032310           1.000000  </code></pre>
 </div>
 </div>
 </div>
-<p>The number of reviews is highly skewed, with many listings receiving few reviews. Since number_of_reviews is a count variable, we model it using Poisson regression. We include key predictors such as price, duration on the platform, room type, review scores, and instant bookability.</p>
-<div id="a73f29b5" class="cell" data-execution_count="12">
+<p><strong>The number of reviews is highly skewed, with many listings receiving few reviews.</strong></p>
+<p><strong>Since number_of_reviews is a count variable, we model it using Poisson regression. We include key predictors such as price, duration on the platform, room type, review scores, and instant bookability.</strong></p>
+<div id="55d15d41" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Step 3: Poisson Regression Modeling</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -803,18 +795,16 @@ number_of_reviews                    -0.032310           1.000000  </code></pre>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'review_scores_value'</span></span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>])</span>
 <span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode categorical variables</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>df_clean[<span class="st">'instant_bookable'</span>] <span class="op">=</span> df_clean[<span class="st">'instant_bookable'</span>].<span class="bu">map</span>({<span class="st">'t'</span>: <span class="dv">1</span>, <span class="st">'f'</span>: <span class="dv">0</span>})</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Use Poisson regression to model number of reviews</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>formula <span class="op">=</span> <span class="st">"number_of_reviews ~ price + days + bathrooms + bedrooms + review_scores_cleanliness + review_scores_location + review_scores_value + C(room_type) + instant_bookable"</span></span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>poisson_model <span class="op">=</span> smf.glm(formula<span class="op">=</span>formula, data<span class="op">=</span>df_clean, family<span class="op">=</span>sm.families.Poisson()).fit()</span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>summary_table <span class="op">=</span> poisson_model.summary2().tables[<span class="dv">1</span>]</span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>display(summary_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>df_clean[<span class="st">'instant_bookable'</span>] <span class="op">=</span> df_clean[<span class="st">'instant_bookable'</span>].<span class="bu">map</span>({<span class="st">'t'</span>: <span class="dv">1</span>, <span class="st">'f'</span>: <span class="dv">0</span>})</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>formula <span class="op">=</span> <span class="st">"number_of_reviews ~ price + days + bathrooms + bedrooms + review_scores_cleanliness + review_scores_location + review_scores_value + C(room_type) + instant_bookable"</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>poisson_model <span class="op">=</span> smf.glm(formula<span class="op">=</span>formula, data<span class="op">=</span>df_clean, family<span class="op">=</span>sm.families.Poisson()).fit()</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>summary_table <span class="op">=</span> poisson_model.summary2().tables[<span class="dv">1</span>]</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>display(summary_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_668652/3513122.py:17: SettingWithCopyWarning:
+<pre><code>/tmp/ipykernel_712193/3753103338.py:16: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame.
