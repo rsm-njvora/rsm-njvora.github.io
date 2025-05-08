@@ -59,6 +59,31 @@ We first visualized the distribution of patent counts using a histogram, separat
 
 While this difference is not dramatic, it is notable and provides initial evidence consistent with the marketing team's hypothesis. However, it is important to interpret these results with caution. This comparison does not account for other firm characteristics such as age or geographic region, which could also influence patent success.
 
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+df = pd.read_csv("blueprinty.csv")
+
+# Ensure age is numeric
+df["age"] = pd.to_numeric(df["age"], errors="coerce")
+
+# Drop missing values
+age_df = df[["iscustomer", "age"]].dropna()
+
+# Set labels for customer status
+age_df["iscustomer"] = age_df["iscustomer"].map({0: "Non-Customer", 1: "Customer"})
+
+# Plot
+plt.figure(figsize=(8, 5))
+sns.boxplot(x="iscustomer", y="age", data=age_df, palette={"Non-Customer": "#FFC107", "Customer": "#2196F3"})
+plt.title("Firm Age Distribution by Customer Status")
+plt.xlabel("Customer Status")
+plt.ylabel("Firm Age (Years)")
+plt.tight_layout()
+plt.show()
+```
+
 
 Blueprinty customers are not selected at random. It may be important to account for systematic differences in the age and regional location of customers vs non-customers.
 
