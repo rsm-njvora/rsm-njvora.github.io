@@ -1,6 +1,6 @@
 ---
 title: "Multinomial Logit Model"
-author: "Your Name"
+author: "Nivan Vora"
 date: today
 ---
 
