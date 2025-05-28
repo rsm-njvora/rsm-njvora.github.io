@@ -379,7 +379,7 @@ To simulate and estimate a multi-level (random-parameter or hierarchical) multin
 - In a frequentist framework, use methods like simulated maximum likelihood or the Expectation-Maximization (EM) algorithm.
 
 **Summary:**  
-- The key change is modeling individual heterogeneity by introducing a distribution over betas, and updating both the population and individual-level parameters during estimation. 
+- The key change is modeling individual heterogeneity by introducing a distribution over betas, and updating both the population and individual-level parameters during estimation.  
 
 
 
