@@ -342,8 +342,6 @@ Overall, the results demonstrate that both approaches are robust for estimating 
 
 ## 6. Discussion
 
-_todo: Suppose you did not simulate the data. What do you observe about the parameter estimates? What does $\beta_\text{Netflix} > \beta_\text{Prime}$ mean? Does it make sense that $\beta_\text{price}$ is negative?_
-
 If the data were not simulated (i.e., if we used real-world data), the parameter estimates would reflect **actual consumer preferences** rather than the "true" values we set in the simulation. Here’s what this means in practice:
 
 - **Parameter Estimates and Real Data:**
@@ -367,8 +365,6 @@ If the data were not simulated (i.e., if we used real-world data), the parameter
   - In real-world applications, parameter estimates help us understand **actual consumer behavior**.
   - The **sign and magnitude** of each coefficient provide insights into **preferences and sensitivities** to different product attributes.
 
-_todo: At a high level, discuss what change you would need to make in order to simulate data from --- and estimate the parameters of --- a multi-level (aka random-parameter or hierarchical) model. This is the model we use to analyze "real world" conjoint data._
-
 To simulate and estimate a multi-level (random-parameter or hierarchical) multinomial logit model, you need to allow the preference parameters (betas) to vary across individuals rather than being fixed for everyone. 
 
 **Simulation:**  
@@ -383,7 +379,7 @@ To simulate and estimate a multi-level (random-parameter or hierarchical) multin
 - In a frequentist framework, use methods like simulated maximum likelihood or the Expectation-Maximization (EM) algorithm.
 
 **Summary:**  
-- The key change is modeling individual heterogeneity by introducing a distribution over betas, and updating both the population and individual-level parameters during estimation.
+- The key change is modeling individual heterogeneity by introducing a distribution over betas, and updating both the population and individual-level parameters during estimation. 
 
 
 
