@@ -232,7 +232,7 @@ We apply a variety of statistical and machine learning methods to assess the imp
 </section>
 <section id="k-means" class="level2">
 <h2 class="anchored" data-anchor-id="k-means">1. K-Means</h2>
-<div id="3e2d96c6" class="cell" data-execution_count="1">
+<div id="9e513768" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -389,7 +389,7 @@ We apply a variety of statistical and machine learning methods to assess the imp
 <li><strong>Comparison</strong>: After running our custom implementation, we compared the final cluster assignments and centroids to those produced by scikit-learn’s <code>KMeans</code>. The results were visually and numerically similar, confirming the correctness of our implementation.</li>
 <li><strong>Animated GIF</strong>: To further illustrate the clustering process, we generated an animated GIF showing the progression of the algorithm over iterations.</li>
 </ul>
-<div id="5ddb6b18" class="cell" data-execution_count="2">
+<div id="f411b4f5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> silhouette_score</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>wcss <span class="op">=</span> []</span>
@@ -470,7 +470,7 @@ The silhouette score measures how similar each point is to its own cluster compa
 <p>In practice, you may consider the context of your data and the interpretability of the clusters when making the final choice.</p>
 <p><strong>Challenge:</strong><br>
 As an extra step, we created an animated GIF to visually demonstrate how the k-means algorithm iteratively updates cluster assignments and centroids. This helps illustrate the convergence process and makes the clustering steps easy to follow.</p>
-<div id="db77a7e4" class="cell" data-execution_count="3">
+<div id="2bc5c0c0" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> imageio</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -505,7 +505,7 @@ As an extra step, we created an animated GIF to visually demonstrate how the k-m
 <span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>kmeans_gif(data, k<span class="op">=</span><span class="dv">3</span>, max_iters<span class="op">=</span><span class="dv">10</span>, gif_path<span class="op">=</span><span class="st">'kmeans_animation.gif'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_81772/1954122467.py:23: DeprecationWarning:
+<pre><code>/tmp/ipykernel_89650/1954122467.py:23: DeprecationWarning:
 
 Starting with ImageIO v3 the behavior of this function will switch to that of iio.v3.imread. To keep the current behavior (and make this warning disappear) use `import imageio.v2 as imageio` or call `imageio.v2.imread` directly.
 </code></pre>
@@ -532,7 +532,7 @@ Starting with ImageIO v3 the behavior of this function will switch to that of ii
 <li><strong>Mean Decrease in RF Gini Coefficient:</strong> Measures the importance of each variable in a random forest model based on the reduction in node impurity.</li>
 </ul>
 <p>The table below summarizes the results for each method:</p>
-<div id="fc7a8afc" class="cell" data-execution_count="4">
+<div id="9d58d3c1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
@@ -740,7 +740,7 @@ Starting with ImageIO v3 the behavior of this function will switch to that of ii
 </div>
 <p><strong>Additional Measures:</strong><br>
 We extended the analysis by including variable importance scores from XGBoost and permutation importance from a neural network (MLP). These methods provide further perspectives on predictor relevance using advanced machine learning models.</p>
-<div id="c48d9789" class="cell" data-execution_count="5">
+<div id="1f3777c4" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xgboost <span class="im">import</span> XGBRegressor</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neural_network <span class="im">import</span> MLPRegressor</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
