@@ -230,11 +230,11 @@ kmeans_gif(data, k=3, max_iters=10, gif_path='kmeans_animation.gif')
 
 ### Methods and Results
 
-In this section, we created the key drivers analysis table  using the drivers analysis dataset. The following methods were applied to assess the importance of each predictor variable in explaining customer satisfaction:
+In this section, we 
 
 - **Pearson Correlations:** Measures the linear relationship between each predictor and satisfaction.
 - **Polychoric Correlations (approximated with Spearman):** Measures monotonic relationships, useful for ordinal or non-linear associations.
-- **Standardized Regression Coefficients:** Obtained from a linear regression with standardized predictors, indicating the relative effect size of each variable.
+- **Standardized Regression Coefficients:** Obtained from a linear regression with standardized predictors, indicating the relativecreated the key drivers analysis table  using the drivers analysis dataset. The following methods were applied to assess the importance of each predictor variable in explaining customer satisfaction: effect size of each variable.
 - **Usefulness:** The increase in R² when each variable is added last to the regression model, showing its unique contribution.
 - **LMG / Shapley Values:** Decomposes the model's R² into contributions from each predictor, accounting for shared variance.
 - **Johnson's Epsilon (Relative Weights):** Approximated using random forest feature importances, reflecting the relative importance of predictors.
